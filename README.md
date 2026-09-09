@@ -157,7 +157,7 @@ Abra seu bot e envie:
 O bot deve responder:
 
 ```text
-✅ DoseTrack conectado. Você receberá seus lembretes por aqui.
+✅ Supplemenrs Reminder conectado. Você receberá seus lembretes por aqui.
 ```
 
 Entre em **Config** no painel e pressione **Testar notificação**.
@@ -178,10 +178,10 @@ O Worker é executado pelo Cron a cada 5 minutos. Quando o horário chegar, ele 
 
 ## 12. Instale como PWA no iPhone
 
-1. Abra a URL do DoseTrack no iPhone.
+1. Abra a URL do Supplemenrs Reminder no iPhone.
 2. Abra o menu Compartilhar.
 3. Toque em **Adicionar à Tela de Início**.
-4. Abra o DoseTrack pelo novo ícone.
+4. Abra o Supplemenrs Reminder pelo novo ícone.
 
 A V1 usa Telegram para as notificações. Web Push pode ser adicionado em uma próxima versão.
 
@@ -297,4 +297,4 @@ em **Settings → Secrets and variables → Actions**. O workflow em `.github/wo
 
 ## Observação
 
-DoseTrack registra os horários e doses cadastrados pelo próprio usuário. Ele não recomenda doses nem substitui orientação médica ou nutricional.
+Supplemenrs Reminder registra os horários e doses cadastrados pelo próprio usuário. Ele não recomenda doses nem substitui orientação médica ou nutricional.
