@@ -1,0 +1,22 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "supplements-reminder",
+	"compatibility_date": "2026-09-09",
+	"main": "./worker/index.ts",
+	"assets": {
+		"not_found_handling": "single-page-application",
+		"binding": "ASSETS"
+	},
+	"triggers": {
+		"crons": [
+			"*/5 * * * *"
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "dosetrack-db",
+			"database_id": "6bde8562-c970-4e5d-b9c2-5cd81a09ab4a"
+		}
+	]
+}

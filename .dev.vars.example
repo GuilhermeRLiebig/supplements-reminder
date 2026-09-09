@@ -1,0 +1,4 @@
+ADMIN_TOKEN=troque-por-uma-chave-grande
+TELEGRAM_BOT_TOKEN=123456:ABCDEF
+TELEGRAM_WEBHOOK_SECRET=troque-por-um-segredo-webhook
+TELEGRAM_PAIR_CODE=troque-por-um-codigo-de-pareamento
