@@ -167,35 +167,6 @@ async function apiRouter(req: Request, env: Env, url: URL) {
 
   if (url.pathname === "/api/health") return json({ok:true});
 
-  if (url.pathname === "/api/debug/run-reminders" && method === "POST") {
-    const current = nowIso();
-
-    const before = await env.DB.prepare(`
-      SELECT COUNT(*) AS count
-      FROM intakes
-      WHERE status='pending'
-        AND next_reminder_at IS NOT NULL
-        AND next_reminder_at <= ?
-    `).bind(current).first<{count:number}>();
-
-    await processReminders(env);
-
-    const after = await env.DB.prepare(`
-      SELECT COUNT(*) AS count
-      FROM intakes
-      WHERE status='pending'
-        AND next_reminder_at IS NOT NULL
-        AND next_reminder_at <= ?
-    `).bind(nowIso()).first<{count:number}>();
-
-    return json({
-      ok: true,
-      dueBefore: Number(before?.count || 0),
-      dueAfter: Number(after?.count || 0)
-    });
-  }
-
-
   if (url.pathname === "/api/supplements" && method === "GET") {
     const {results} = await env.DB.prepare(`SELECT p.*, s.time_local, s.days_of_week, s.reminder_interval_min, s.max_reminders FROM supplements p JOIN schedules s ON s.supplement_id=p.id ORDER BY s.time_local`).all<any>();
     return json({supplements:results.map(x=>({...x,days_of_week:JSON.parse(x.days_of_week)}))});
